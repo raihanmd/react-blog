@@ -14,7 +14,7 @@ const Create = () => {
 
     setIsPending(true);
 
-    fetch("raihanmd-blog-api.vercel.app/blogs", {
+    fetch("https://raihanmd-blog-api.vercel.app/blog", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(blog),

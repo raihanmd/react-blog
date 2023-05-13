@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 const BlogDetails = () => {
   const { id } = useParams();
-  const { data: blog, error, isPending } = useFetch(`raihanmd-blog-api.vercel.app/blogs` + id);
+  const { data: blog, error, isPending } = useFetch(`https://raihanmd-blog-api.vercel.app/blog` + id);
   const history = useHistory;
 
   const handleClick = () => {
-    fetch("raihanmd-blog-api.vercel.app/blogs" + id, {
+    fetch("https://raihanmd-blog-api.vercel.app/blog" + id, {
       method: "DELETE",
     }).then((res) => {
       history.push("/");

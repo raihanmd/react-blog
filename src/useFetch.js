@@ -10,12 +10,14 @@ const useFetch = (url) => {
     //? cleanup
     const abortCont = new AbortController();
 
-    fetch(url, { signal: abortCont.signal })
+    fetch(url, {
+      signal: abortCont.signal,
+    })
       .then((res) => {
         if (!res.ok) {
           throw new Error(`Couldn't fetch the data for that resource.`);
         }
-        return res.json();
+        return res;
       })
       .then((data) => {
         setData(data);
