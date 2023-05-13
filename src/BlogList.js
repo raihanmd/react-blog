@@ -6,7 +6,7 @@ const BlogList = ({ title, blogs }) => {
       <h2>{title}:</h2>
       {blogs.map((blog) => (
         <div className="blog-preview" key={blog.id}>
-          <Link to={`/blogs/${blog.id}`}>
+          <Link to={`/blogs/${blog.slug}`}>
             <h2>{blog.title}</h2>
             <p>Written by {blog.author}</p>
           </Link>
