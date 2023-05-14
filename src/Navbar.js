@@ -14,7 +14,7 @@ const Navbar = () => {
             borderRadius: "10px",
           }}
         >
-          New Blog
+          Add
         </Link>
       </div>
     </nav>
