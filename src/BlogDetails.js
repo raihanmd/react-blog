@@ -10,6 +10,12 @@ const BlogDetails = () => {
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
 
+  let blogBody;
+
+  const loadBlogBody = (blog) => {
+    blogBody = blog.split("(next)");
+  };
+
   const handleClick = (id) => {
     let token = prompt("Enter the Owner token:");
     if (token === "812361523712") {
@@ -38,12 +44,18 @@ const BlogDetails = () => {
       {isPending && <div>Loading...</div>}
       {error && <div>{error}</div>}
       {blog && !isLoading && (
-        <article>
+        <article onLoad={loadBlogBody(blog[0].body)}>
           <h2>{blog[0].title}</h2>
           <p>Written by {blog[0].author}</p>
-          <p style={{ textAlign: "center", textIndent: "45px" }}>{blog[0].body}</p>
+          <div style={{ paddingTop: "1.6rem", paddingBottom: "2rem" }}>
+            {blogBody.map((el, i) => (
+              <p key={i} style={{ textAlign: "justify", textIndent: "45px", lineHeight: "28px" }}>
+                {el}
+              </p>
+            ))}
+          </div>
           <hr />
-          <Link>
+          <Link to="/">
             <button>&laquo; Back</button>
             <button className="delete" onClick={() => handleClick(blog[0].id)}>
               Delete
