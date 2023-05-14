@@ -41,7 +41,8 @@ const BlogDetails = () => {
         <article>
           <h2>{blog[0].title}</h2>
           <p>Written by {blog[0].author}</p>
-          <pre>{blog[0].body}</pre>
+          <p style={{ textAlign: "center", textIndent: "45px" }}>{blog[0].body}</p>
+          <hr />
           <Link>
             <button>&laquo; Back</button>
             <button className="delete" onClick={() => handleClick(blog[0].id)}>
